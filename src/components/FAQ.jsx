@@ -6,10 +6,6 @@ export default function FAQ() {
 
     const faqs = [
         {
-            q: "What is the OiD FamPass?",
-            a: "A digital membership card offering exclusive perks at local businesses.",
-        },
-        {
             q: "Is it free?",
             a: "Yes, the FamPass is completely free to use.",
         },
