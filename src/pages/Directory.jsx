@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight, Filter, Plus, Search } from "lucide-react";
 import "swiper/css";
 import Button from "../components/PrimaryBtn";
 import { Link } from "react-router-dom";
+import ImageLoader from "../components/ImageLoader";
 
 const cards = [
     {
@@ -78,8 +79,12 @@ function Section({ title }) {
                     <SwiperSlide key={i}>
                         <div className="border border-gray-300 p-2 bg-white relative">
 
-                            <img src={c.logo} className="shadow-md mb-3" />
-
+                            <ImageLoader
+                                src={c.logo}
+                                alt={c.title}
+                                className="w-full shadow mb-3 overflow-hidden"
+                                imgClass="object-cover shadow-md"
+                            />
                             <div className="flex items-center justify-between text-xs mb-1">
                                 <span>⭐ {c.rating}</span>
                                 <span>▶ {c.views}</span>

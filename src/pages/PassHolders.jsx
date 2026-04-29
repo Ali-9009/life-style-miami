@@ -2,6 +2,7 @@ import { CheckCircle } from "lucide-react";
 import FAQ from "../components/FAQ";
 import Button from "../components/PrimaryBtn"
 import Hero from "../components/Hero";
+import ImageLoader from "../components/ImageLoader";
 
 
 export default function PassHolders() {
@@ -14,7 +15,10 @@ export default function PassHolders() {
             />
 
             <section className="grid md:grid-cols-2 gap-10 items-center">
-                <img src="assets/p-1.jpg" className="rounded-xl w-full " />
+                <ImageLoader
+                    src="assets/p-1.jpg"
+                    alt="preview"
+                />
 
                 <div>
                     <h2 className="text-xl md:text-3xl font-semibold">
@@ -94,11 +98,17 @@ export default function PassHolders() {
                     </div>
                 </div>
 
-                <img src="assets/p-2.jpg" className="rounded-xl" />
+                <ImageLoader
+                    src="assets/p-2.jpg"
+                    alt="preview"
+                />
             </section>
 
             <section className="grid md:grid-cols-2 gap-10 items-center">
-                <img src="assets/v-3.jpg" className="rounded-xl w-full" />
+                <ImageLoader
+                    src="assets/v-3.jpg"
+                    alt="preview"
+                />
 
                 <div>
                     <h2 className="text-xl md:text-3xl font-semibold">

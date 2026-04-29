@@ -1,3 +1,5 @@
+import ImageLoader from "../../components/ImageLoader";
+
 export default function AuthLayout({ title, subtitle, children }) {
     return (
         <main className="max-w-7xl mx-auto py-8 px-4">
@@ -27,7 +29,9 @@ export default function AuthLayout({ title, subtitle, children }) {
 
                         {/* IMAGE SIDE */}
                         <div className="hidden lg:flex items-start justify-end">
-                            <img src="/assets/auth-logo.png" alt="" />
+                            <ImageLoader
+                                src="/assets/auth-logo.png"
+                            />
                         </div>
 
                     </div>

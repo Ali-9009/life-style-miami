@@ -2,6 +2,7 @@ import { CheckCircle } from "lucide-react";
 import FAQ from "../components/FAQ";
 import Button from "../components/PrimaryBtn"
 import Hero from "../components/Hero";
+import ImageLoader from "../components/ImageLoader";
 
 export default function Vendors() {
     return (
@@ -13,7 +14,10 @@ export default function Vendors() {
             />
 
             <section className="grid md:grid-cols-2 gap-10 items-center">
-                <img src="assets/v-1.jpg" className="rounded-xl w-full" />
+                <ImageLoader
+                    src="assets/v-1.jpg"
+                    alt="preview"
+                />
 
                 <div>
                     <h2 className="text-xl md:text-3xl font-semibold">
@@ -84,11 +88,17 @@ export default function Vendors() {
                     </div>
                 </div>
 
-                <img src="assets/v-2.jpg" className="rounded-xl" />
+                <ImageLoader
+                    src="assets/v-2.jpg"
+                    alt="preview"
+                />
             </section>
 
             <section className="grid md:grid-cols-2 gap-10 items-center">
-                <img src="assets/v-3.jpg" className="rounded-xl w-full " />
+                <ImageLoader
+                    src="assets/v-3.jpg"
+                    alt="preview"
+                />
 
                 <div>
                     <h2 className="text-xl md:text-3xl font-semibold">

@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
+import ImageLoader from "./ImageLoader";
 
 const data = [
     { img: "/assets/c-1.jpg", name: "All Categories" },
@@ -59,8 +60,12 @@ export default function Categories() {
                         <SwiperSlide key={i}>
                             <div className="text-center cursor-pointer">
                                 <div className="border border-gray-200 rounded-lg overflow-hidden p-3">
-                                    <img src={item.img} className="w-full h-full object-cover" />
-                                </div>
+                                    <ImageLoader
+                                        src={item.img}
+                                        alt={item.name}
+                                        className="w-full h-full object-cover"
+                                        imgClass="object-cover"
+                                    />                                </div>
                                 <p className="text-md font-semibold mt-2">{item.name}</p>
                             </div>
                         </SwiperSlide>
