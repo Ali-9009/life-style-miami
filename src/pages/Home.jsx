@@ -40,7 +40,7 @@ export default function Home() {
             <section className="relative overflow-hidden rounded-2xl">
                 <img src="/assets/bg-banner.png" className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0" />
-                <div className="relative px-5 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-24 flex flex-col items-start">
+                <div className="relative px-5 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-22 flex flex-col items-start">
                     <h1>
                         <span className="block text-2xl font-bold text-white tracking-widest uppercase">Welcome To</span>
                         <span className="block text-3xl md:text-6xl font-bold bg-linear-to-r from-(--primary-color) via-white to-(--secondary-color) bg-clip-text text-transparent">THE NETWORK</span>

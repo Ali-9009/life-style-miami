@@ -10,3 +10,8 @@ body {
 .primary-heading {
     @apply lg:text-5xl md:text-4xl text-3xl font-semibold text-(--primary-color);
 }
+
+
+.input {
+    @apply w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm outline-none;
+}

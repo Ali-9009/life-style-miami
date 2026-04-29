@@ -1,4 +1,6 @@
 import { Clock } from "lucide-react";
+import { Link } from "react-router-dom";
+
 import Hero from "../components/Hero";
 
 export default function Lowdown() {
@@ -23,50 +25,42 @@ export default function Lowdown() {
 
     return (
         <main className="max-w-7xl mx-auto py-8 px-4 space-y-14">
-            <Hero title="Blog" />
+            <Hero title="Lowdown" />
 
             <section className="">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
                     {posts.map((item, i) => (
-                        <div
-                            key={i}
-                            className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition"
-                        >
+                        <Link to={`/lowdownDetail`}>
+                            <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
 
-                            {/* IMAGE */}
-                            <div className="h-64 bg-gray-100">
-                                {item.img ? (
+                                {/* IMAGE */}
+                                <div className="h-64 bg-gray-100">
                                     <img
                                         src={item.img}
                                         alt={item.title}
                                         className="w-full h-full object-cover"
                                     />
-                                ) : (
-                                    <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">
-                                        Add Image
+                                </div>
+
+                                {/* CONTENT */}
+                                <div className="p-4 space-y-3">
+                                    <h3 className="font-semibold text-md leading-5">
+                                        {item.title}
+                                    </h3>
+
+                                    <p className="text-sm text-gray-500">
+                                        Progressively innovative cooperative systems through.
+                                    </p>
+
+                                    <div className="flex items-center gap-2 text-xs text-gray-400 pt-2 border-t">
+                                        <Clock size={14} />
+                                        <span>4 Minutes Read</span>
                                     </div>
-                                )}
-                            </div>
-
-                            {/* CONTENT */}
-                            <div className="p-4 space-y-3">
-
-                                <h3 className="font-semibold text-md leading-5">
-                                    {item.title}
-                                </h3>
-
-                                <p className="text-sm text-gray-500">
-                                    Progressively innovative cooperative systems through.
-                                </p>
-
-                                <div className="flex items-center gap-2 text-xs text-gray-400 pt-2 border-t">
-                                    <Clock size={14} />
-                                    <span>4 Minutes Read</span>
                                 </div>
 
                             </div>
-                        </div>
+                        </Link>
                     ))}
 
                 </div>

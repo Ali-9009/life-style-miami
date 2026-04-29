@@ -1,8 +1,8 @@
 export default function LowdownDetail() {
     return (
-        <main className="max-w-7xl mx-auto px-6 mt-6 space-y-10">
+        <main className="max-w-7xl mx-auto py-8 px-4 space-y-10">
             <section>
-                <img src="/assets/banner1.png" alt="" className="w-full" />
+                <img src="/assets/low-1.jpg" alt="" className="w-full" />
             </section>
 
             <section className="space-y-8">
@@ -13,8 +13,8 @@ export default function LowdownDetail() {
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <img src="/assets/lay-1.png" className="w-full h-72 object-cover" alt="" />
-                    <img src="/assets/lay-2.png" className="w-full h-72 object-cover" alt="" />
+                    <img src="/assets/low-2.jpg" alt="" />
+                    <img src="/assets/low-3.jpg" alt="" />
                 </div>
 
                 <p className="poppins leading-relaxed">
@@ -23,7 +23,7 @@ export default function LowdownDetail() {
 
                 <div className="border-l-4 border-(--primary-color) pl-4">
                     <p className="text-(--primary-color) text-xl font-semibold italic">
-                        “ Monotonectally seize superior mindshare rather than efficient technology. ”
+                        “seize superior mind share rather than efficient technology. ”
                     </p>
                 </div>
 

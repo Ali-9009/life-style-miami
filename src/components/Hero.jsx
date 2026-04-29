@@ -1,6 +1,6 @@
 export default function Hero({ title, description }) {
     return (
-        <section className="relative overflow-hidden rounded-2xl text-center py-20 px-6 text-white">
+        <section className="relative overflow-hidden rounded-2xl text-center md:py-18 py-12 px-6 text-white">
 
             {/* animated gradient */}
             <div className="absolute inset-0 bg-linear-to-r from-[#03AFC0] via-white to-[#FD4B91] opacity-90 animate-[moveGradient_8s_ease-in-out_infinite]"></div>

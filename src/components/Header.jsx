@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import {
     Menu,
     X,
-    Heart,
-    MessageCircle,
     Home,
     Users,
     Store,
@@ -28,7 +26,7 @@ export default function Header() {
         { name: "Contact Us", icon: Phone, path: "/contact" },
     ];
 
-    //  Detect scroll for sticky animation
+    // Sticky scroll
     useEffect(() => {
         const handleScroll = () => {
             setIsSticky(window.scrollY > 120);
@@ -45,8 +43,6 @@ export default function Header() {
             {/* TOP BAR */}
             <div className="w-full bg-white border-b border-gray-200 py-2 text-sm shadow-sm">
                 <div className="max-w-6xl mx-auto flex justify-between items-center px-4">
-
-                    {/* ✅ Updated Icons */}
                     <div className="flex items-center text-[11px] space-x-4 text-gray-600">
                         <div className="flex items-center gap-1">
                             <ThermometerSun size={14} />
@@ -59,7 +55,6 @@ export default function Header() {
                         </div>
                     </div>
 
-                    {/* Socials */}
                     <div className="flex items-center space-x-4 text-lg">
                         <i className="ri-facebook-fill hover:text-blue-600 cursor-pointer"></i>
                         <i className="ri-twitter-x-line hover:text-black cursor-pointer"></i>
@@ -75,31 +70,30 @@ export default function Header() {
                         <img src="assets/logo.png" alt="logo" />
                     </Link>
 
-                    <div className="hidden md:flex items-center gap-3">
-                        <Button text="Login" />
-                        <Button text="Vendor Login" />
-
-                        <Heart className="w-5 h-5 cursor-pointer hover:text-red-500" />
+                    {/* ✅ Desktop only */}
+                    <div className="hidden lg:flex items-center gap-3">
+                        <Button text="Vendor Login" to="/login" />
                     </div>
 
-                    <button onClick={() => setOpen(true)} className="md:hidden">
+                    {/* ✅ Mobile + Tablet */}
+                    <button
+                        onClick={() => setOpen(true)}
+                        className="lg:hidden transition-transform active:scale-90"
+                    >
                         <Menu />
                     </button>
                 </div>
             </header>
 
-            {/*  NAVBAR (SMART STICKY) */}
+            {/* NAVBAR (Desktop only) */}
             <nav
-                className={`hidden md:block z-30 transition-all duration-300
+                className={`hidden lg:block z-30 transition-all duration-500 ease-out
         ${isSticky
                         ? "fixed top-0 left-0 w-full bg-white/70 backdrop-blur-lg shadow-md animate-slideDown"
                         : "relative max-w-7xl mx-auto bg-white rounded-xl shadow-sm"
                     }`}
             >
-                <div
-                    className={`flex justify-center space-x-12 py-4 text-sm transition-all duration-300 ${isSticky ? "max-w-7xl mx-auto" : ""
-                        }`}
-                >
+                <div className="flex justify-center space-x-12 py-4 text-sm">
                     {navItems.map((item, i) => {
                         const Icon = item.icon;
                         return (
@@ -107,9 +101,9 @@ export default function Header() {
                                 key={i}
                                 to={item.path}
                                 className={({ isActive }) =>
-                                    `flex items-center gap-1 px-3 py-2 rounded-full text-md font-semibold transition ${isActive
-                                        ? "bg-(--primary-color) text-white"
-                                        : "hover:bg-(--primary-color) hover:text-white"
+                                    `flex items-center gap-1 px-3 py-2 rounded-full text-md font-semibold transition-all duration-300 ${isActive
+                                        ? "bg-(--primary-color) text-white scale-105"
+                                        : "hover:bg-(--primary-color) hover:text-white hover:scale-105"
                                     }`
                                 }
                             >
@@ -121,13 +115,16 @@ export default function Header() {
                 </div>
             </nav>
 
-            {/* MOBILE SIDEBAR */}
+            {/* SIDEBAR */}
             <div
-                className={`fixed top-0 right-0 w-full h-full bg-white z-50 transform transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"
-                    }`}
+                className={`fixed top-0 right-0 w-full h-full bg-white z-50 transform transition-all duration-300 ease-in-out
+        ${open ? "translate-x-0" : "translate-x-full"}`}
             >
                 <div className="flex justify-end p-4 border-b">
-                    <X onClick={() => setOpen(false)} className="cursor-pointer" />
+                    <X
+                        onClick={() => setOpen(false)}
+                        className="cursor-pointer transition-transform active:scale-90"
+                    />
                 </div>
 
                 <div className="flex flex-col space-y-3 px-6 py-4 text-sm">
@@ -139,7 +136,7 @@ export default function Header() {
                                 to={item.path}
                                 onClick={() => setOpen(false)}
                                 className={({ isActive }) =>
-                                    `flex items-center gap-2 py-2 px-3 rounded transition ${isActive
+                                    `flex items-center gap-2 py-2 px-3 rounded transition-all duration-300 ${isActive
                                         ? "bg-(--secondary-color) text-white"
                                         : "hover:bg-(--secondary-color) hover:text-white"
                                     }`
@@ -151,48 +148,39 @@ export default function Header() {
                         );
                     })}
 
-                    <div className="flex items-center gap-2 text-(--primary-color) mt-3">
-                        <MessageCircle />
-                        <span className="font-medium">Chat</span>
-                    </div>
-
                     <hr />
 
-                    <button className="bg-(--primary-color) text-white py-2 px-4 rounded hover:bg-(--secondary-color) transition">
-                        FamPass Holder Login
-                    </button>
-
-                    <button className="bg-gray-800 text-white py-2 px-4 rounded hover:bg-(--secondary-color) transition">
-                        Vendor Login
-                    </button>
+                    {/* ✅ FIX: closes sidebar */}
+                    <div onClick={() => setOpen(false)}>
+                        <Button text="Vendor Login" to="/login" />
+                    </div>
                 </div>
             </div>
 
-            {/* OVERLAY */}
-            {open && (
-                <div
-                    onClick={() => setOpen(false)}
-                    className="fixed inset-0 bg-black/50 z-40"
-                />
-            )}
+            {/* OVERLAY (smooth fade) */}
+            <div
+                onClick={() => setOpen(false)}
+                className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${open ? "opacity-100 visible" : "opacity-0 invisible"
+                    }`}
+            />
 
             {/* ANIMATION */}
             <style>
                 {`
-          @keyframes slideDown {
-            from {
-              opacity: 0;
-              transform: translateY(-20px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
           }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
 
-          .animate-slideDown {
-            animation: slideDown 0.3s ease forwards;
-          }
+        .animate-slideDown {
+          animation: slideDown 0.4s ease forwards;
+        }
         `}
             </style>
         </>
