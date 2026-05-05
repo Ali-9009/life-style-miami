@@ -92,7 +92,7 @@ function Section({ title }) {
 
                             <h3 className="font-semibold text-md">{c.title}</h3>
 
-                            <p className="text-sm text-gray-500 mt-1">{c.desc}</p>
+                            {/* <p className="text-sm text-gray-500 mt-1">{c.desc}</p> */}
 
                             <Link
                                 to={`/directory-detail`}
